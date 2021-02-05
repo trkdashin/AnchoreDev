@@ -1,6 +1,5 @@
 ---
 version: '2.1'
-​
 services:
 # Uncomment this sectionto add a prometheus instance to gather metrics. This is mostly for quickstart to demonstrate prometheus metrics exported
   prometheus:
