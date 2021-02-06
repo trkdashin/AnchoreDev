@@ -4,7 +4,7 @@ services:
   prometheus:
     image: docker.io/prom/prometheus:latest
     volumes:
-    - ./prometheus-config.yml:/etc/prometheus/prometheus.yml:z
+      - ./prometheus-config.yml:/etc/prometheus/prometheus.yml:z
     logging:
       driver: "json-file"
       options:
@@ -15,9 +15,9 @@ services:
   grafana:
     image: docker.io/grafana/grafana:latest
     depends_on:
-    - prometheus
+      - prometheus
     volumes:
-    - ./grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana.ini:/etc/grafana/grafana.ini
     logging:
       driver: "json-file"
       options:
