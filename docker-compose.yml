@@ -24,4 +24,3 @@ services:
         max-size: 100m
     ports:
       - "3001:3000"
-​
