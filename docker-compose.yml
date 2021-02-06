@@ -10,7 +10,7 @@ services:
       options:
        max-size: 100m
     ports:
-    - "9090:9090"
+      - "9090:9090"
 
   grafana:
     image: docker.io/grafana/grafana:latest
@@ -37,10 +37,11 @@ services:
       driver: "json-file"
       options:
         max-size: 100m
+
   swagger-ui:
     image: docker.io/swaggerapi/swagger-ui
     environment:
-    - URL=http://localhost:8083/v1/swagger.json
+      - URL=http://localhost:8083/v1/swagger.json
     logging:
       driver: "json-file"
       options:
