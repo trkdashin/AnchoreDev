@@ -1,7 +1,6 @@
 ---
 version: '2.1'
 services:
-# Uncomment this sectionto add a prometheus instance to gather metrics. This is mostly for quickstart to demonstrate prometheus metrics exported
   prometheus:
     image: docker.io/prom/prometheus:latest
     volumes:
@@ -12,14 +11,13 @@ services:
        max-size: 100m
     ports:
     - "9090:9090"
-​
-# Uncomment this section to add a grafana instance to integrate with prometheus.
+
   grafana:
     image: docker.io/grafana/grafana:latest
     depends_on:
     - prometheus
-  #  volumes:
-  #  - ./grafana.ini:/etc/grafana/grafana.ini
+    volumes:
+    - ./grafana.ini:/etc/grafana/grafana.ini
     logging:
       driver: "json-file"
       options:
@@ -27,7 +25,6 @@ services:
     ports:
       - "3001:3000"
 ​
-# Uncomment this section to run a swagger UI service, for inspecting and interacting with the anchore engine API via a browser (http://localhost:8080 by default, change if needed in both sections below)
   swagger-ui-nginx:
     image: docker.io/nginx:latest
     depends_on:
@@ -49,7 +46,6 @@ services:
       options:
         max-size: 100m
 ​
-# Uncomment this section to add a pgadmin instance to interacte with anchore-db
   pgadmin:
     image: docker.io/dpage/pgadmin4:latest
     logging:
